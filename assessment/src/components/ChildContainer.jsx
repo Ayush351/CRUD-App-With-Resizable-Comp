@@ -55,18 +55,20 @@ const ChildContainer = ({ name, number }) => {
         {data.profession ? data.profession : "...😉"}. I am{" "}
         {data.role ? data.role : "...🙂"}.
       </p>
-      <p className="api-stats">
-        <span className="api-stat" style={{ borderColor : 'red' }}>API Calls: {addCount + updateCount} </span>
-        <span className="api-stat" style={{ borderColor : 'blue' }}>Add Count: {addCount} </span>
-        <span className="api-stat" style={{ borderColor : 'orange' }}>Update Count: {updateCount} </span>
-      </p>
+      <div className="api-stats">
+        <span className="api-stat" style={{ borderColor: 'red' }}>API Calls: {addCount + updateCount}</span>
+        <span className="api-stat" style={{ borderColor: 'blue' }}>Add Count: {addCount}</span>
+        <span className="api-stat" style={{ borderColor: 'orange' }}>Update Count: {updateCount}</span>
+      </div>
 
-      <button style={buttonStyle} onClick={handleAddNew}>
-        Add
-      </button>
-      <button style={buttonStyle} onClick={handleOpenModal}>
-        Update
-      </button>
+      <div className="button-container">
+        <button style={buttonStyle} onClick={handleAddNew}>
+          Add
+        </button>
+        <button style={buttonStyle} onClick={handleOpenModal}>
+          Update
+        </button>
+      </div>
 
       {isModalOpen && (
         <EditModal
@@ -81,11 +83,15 @@ const ChildContainer = ({ name, number }) => {
       <style>{`
         .child {
           margin-bottom: 20px;
+          text-align: center; /* Center child elements */
         }
         
         .api-stats {
           font-size: 14px;
           margin-top: 10px;
+          display: flex;
+          justify-content: center; /* Center API stats */
+          flex-wrap: wrap; /* Allow wrapping */
         }
 
         .api-stat {
@@ -93,6 +99,10 @@ const ChildContainer = ({ name, number }) => {
           border: 2px solid #ddd; /* Add border to each span */
           padding: 5px; /* Add padding for better spacing */
           border-radius: 5px; /* Add border radius for rounded corners */
+        }
+
+        .button-container {
+          margin-top: 10px;
         }
       `}</style>
     </div>
@@ -106,12 +116,9 @@ const buttonStyle = {
   border: "none",
   color: "white",
   padding: "10px 10px",
-  textAlign: "center",
   textDecoration: "none",
-  display: "inline-block",
   fontSize: "14px",
   margin: "2px 2px",
   cursor: "pointer",
   borderRadius: "10px",
 };
-
