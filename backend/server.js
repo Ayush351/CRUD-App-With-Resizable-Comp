@@ -30,7 +30,6 @@ const Data = mongoose.model('Data', dataSchema);
 // Middleware for parsing JSON data
 app.use(bodyParser.json());
 
-// Define your API endpoints...
 
 // Start the server
 app.listen(PORT, () => {
