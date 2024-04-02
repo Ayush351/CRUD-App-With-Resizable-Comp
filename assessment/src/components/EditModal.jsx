@@ -1,18 +1,12 @@
-
-
 import React, { useState } from "react";
 import './EditModal.css';
+
 const EditModal = ({ isOpen, onClose, onSave, initialData, editedData }) => {
   const [data, setData] = useState(initialData);
   const [isEditing, setIsEditing] = useState(true);
 
   const handleSave = () => {
     onSave(data);
-    setIsEditing(false);
-    onClose();
-  };
-
-  const handleCancel = () => {
     setIsEditing(false);
     onClose();
   };
@@ -62,7 +56,6 @@ const EditModal = ({ isOpen, onClose, onSave, initialData, editedData }) => {
               </label>
             </div>
             <button style={buttonStyle} onClick={handleSave}>Save</button>
-            <button style={buttonStyle} onClick={handleCancel}>Cancel</button>
           </>
         )}
       </div>
@@ -85,4 +78,3 @@ const buttonStyle = {
   cursor: "pointer",
   borderRadius: "10px"
 };
-

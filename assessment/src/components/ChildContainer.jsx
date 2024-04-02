@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EditModal from "./EditModal";
 
 const ChildContainer = ({ name, number }) => {
@@ -9,10 +9,15 @@ const ChildContainer = ({ name, number }) => {
   };
 
   const [data, setData] = useState(initialData);
+  const [originalData, setOriginalData] = useState(initialData); // Store original data
   const [addCount, setAddCount] = useState(0);
   const [updateCount, setUpdateCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddingNew, setIsAddingNew] = useState(false);
+
+  useEffect(() => {
+    setOriginalData(data); // Update original data whenever data changes
+  }, [data]);
 
   const handleDataChange = (newData) => {
     setData(newData);
@@ -32,6 +37,8 @@ const ChildContainer = ({ name, number }) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setIsAddingNew(false);
+    // Revert back to original data when closing modal without saving
+    setData(originalData);
   };
 
   const handleAddNew = () => {
@@ -49,9 +56,9 @@ const ChildContainer = ({ name, number }) => {
         {data.role ? data.role : "...🙂"}.
       </p>
       <p className="api-stats">
-        <span className="api-stat">API Calls: {addCount + updateCount} </span>
-        <span className="api-stat">Add Count: {addCount} </span>
-        <span className="api-stat">Update Count: {updateCount} </span>
+        <span className="api-stat" style={{ borderColor : 'red' }}>API Calls: {addCount + updateCount} </span>
+        <span className="api-stat" style={{ borderColor : 'blue' }}>Add Count: {addCount} </span>
+        <span className="api-stat" style={{ borderColor : 'orange' }}>Update Count: {updateCount} </span>
       </p>
 
       <button style={buttonStyle} onClick={handleAddNew}>
@@ -83,7 +90,7 @@ const ChildContainer = ({ name, number }) => {
 
         .api-stat {
           margin-right: 10px; /* Add space between spans */
-          border: 1px solid #ddd; /* Add border to each span */
+          border: 2px solid #ddd; /* Add border to each span */
           padding: 5px; /* Add padding for better spacing */
           border-radius: 5px; /* Add border radius for rounded corners */
         }
@@ -107,3 +114,4 @@ const buttonStyle = {
   cursor: "pointer",
   borderRadius: "10px",
 };
+
