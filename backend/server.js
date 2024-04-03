@@ -1,37 +1,25 @@
+// Updated app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const dataRoutes = require('./routes/dataRoutes');
+
+require('dotenv').config();
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Connect to MongoDB database
-mongoose.connect('mongodb+srv://payush351:BifEUJLEthxUmpGo@cluster0.zpixqlh.mongodb.net/<database-name>?retryWrites=true&w=majority', 
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
-const db = mongoose.connection;
-
-// Listen for MongoDB connection events
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
   console.log('MongoDB connected successfully');
-});
+}).catch(err => console.error('MongoDB connection error:', err));
 
-// Define schema for data
-const dataSchema = new mongoose.Schema({
-  name: String,
-  profession: String,
-  role: String
-});
-
-// Create model based on schema
-const Data = mongoose.model('Data', dataSchema);
-
-// Middleware for parsing JSON data
 app.use(bodyParser.json());
+app.use('/api/data', dataRoutes);
 
-
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

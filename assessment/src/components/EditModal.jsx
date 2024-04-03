@@ -19,7 +19,7 @@ const EditModal = ({ isOpen, onClose, onSave, initialData, editedData }) => {
 
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
-      <div className="modal-content">
+      <div className="modal-content" style={{ fontSize: '10px' , fontWeight : '500' }}>
         {isEditing && (
           <>
             <div>
@@ -73,7 +73,7 @@ const buttonStyle = {
   textAlign: "center",
   textDecoration: "none",
   display: "inline-block",
-  fontSize: "12px",
+  fontSize: "10px",
   margin: "4px 2px",
   cursor: "pointer",
   borderRadius: "10px"
