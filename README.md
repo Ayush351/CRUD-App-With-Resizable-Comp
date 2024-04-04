@@ -3,6 +3,14 @@
 ## Overview
 This project is a full-stack web application built with React.js for the front end and Express.js for the back end. It provides resizable components on the front end and handles data operations via RESTful APIs on the back end. The application allows users to perform CRUD (Create, Read, Update, Delete) operations on data stored in a MongoDB database.
 
+
+https://github.com/Ayush351/CRUD-App-With-Resizable-Comp/assets/41275743/1d8a9abd-d21b-43e1-9eb2-517c091ea851
+
+### MongoDB Database Entry
+
+![Screenshot 2024-04-04 222703](https://github.com/Ayush351/CRUD-App-With-Resizable-Comp/assets/41275743/95df1ade-a70c-4d9b-8d9b-0e2819a27be6)
+
+
 ## Features
 
 - Resizable Components: The front end includes resizable components using react-resizable and react-resizable-panels libraries, providing a flexible and customizable user interface.
