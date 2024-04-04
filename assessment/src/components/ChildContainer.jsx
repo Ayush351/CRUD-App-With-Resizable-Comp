@@ -3,7 +3,7 @@ import EditModal from "./EditModal";
 
 const ChildContainer = ({ name, number }) => {
   const initialData = {
-    name: "Saniya Imroze",
+    name: "Ayush Pandey",
     profession: "Software Developer",
     role: "Community Leader",
   };
