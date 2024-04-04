@@ -36,6 +36,8 @@ https://github.com/Ayush351/CRUD-App-With-Resizable-Comp/assets/41275743/1d8a9ab
 - Body-parser
 - Cors
 - Dotenv
+
+### Demo Link - https://crud-app-with-resizable-comp.vercel.app/
   
 ### Getting Started
 
